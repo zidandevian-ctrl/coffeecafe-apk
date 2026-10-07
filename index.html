@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Buat Biel 💖</title>
+<title>Buat Biel</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -67,20 +67,20 @@ button:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
 <div class="float" id="float" aria-hidden="true"></div>
 <main>
   <section class="card" id="ask">
-    <div class="deco" aria-hidden="true">🌸💗🎀💗🌸</div>
+    <div class="deco" aria-hidden="true">😹😹😹😹</div>
     <div class="bear" aria-hidden="true">🧸</div>
     <h1>BIEL MAU GA JADI <b>PACARKU?</b> 🥺👉👈</h1>
     <p class="sub" id="sub">Jawab yang bener yaa, cantik 💕</p>
     <div class="btns" id="btns">
-      <button id="yes">Mau 💖</button>
+      <button id="yes">Mau 😹</button>
       <button id="no">Gamau 😾</button>
     </div>
     <div class="deco" aria-hidden="true" style="margin-top:16px">🍓🦋✨🦋🍓</div>
   </section>
 
   <section class="card" id="win" aria-live="polite">
-    <div class="deco" aria-hidden="true">💖🎀💖🎀💖</div>
-    <div class="bear" aria-hidden="true">🥰</div>
+    <div class="deco" aria-hidden="true">😘😘😘😭😹</div>
+    <div class="bear" aria-hidden="true">😭🗿</div>
     <div id="msg"></div>
     <div class="deco" aria-hidden="true" style="margin-top:14px">🌸🧸💞🧸🌸</div>
   </section>
@@ -93,7 +93,7 @@ button:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // hiasan melayang di latar
-  var fl=document.getElementById('float'), emo=['💖','🌸','🎀','🍓','✨','🦋','💗','🧸'];
+  var fl=document.getElementById('float'), emo=['😭','😹','😭','😹','😘','🫣','💗','🧸'];
   for(var i=0;i<18;i++){
     var s=document.createElement('span');
     s.textContent=emo[i%emo.length];
@@ -105,7 +105,7 @@ button:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
   }
 
   // tombol Gamau kabur
-  var taunts=['Eh kok mau pencet? 😝','Gabisa wleee 🏃‍♂️','Salah tombol, sayang 😜','Udah deh, pencet Mau aja 🥺','Tombolnya malu 🙈','Capek kan ngejar? Pencet Mau 💖','Nyerah aja yaa 😘','Gamau-nya lagi libur 🏖️'];
+  var taunts=['Duh Ke Gocek 😹','Gabisa wleee 🏃‍♂️','Eits Ga kena aowkaowk..','Udah deh, pencet Mau aja 🥺','Tombolnya Pundung 🗿','Capek kan ngejar? Pencet Mau 😹','Kiw Kiw 🤪'];
   var tries=0, yesScale=1, placed=false;
   function dodge(e){
     if(e){e.preventDefault();e.stopPropagation();}
@@ -135,7 +135,7 @@ button:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
   // hujan emoji
   function rain(n){
     if(reduce)return;
-    var set=['💖','💗','💕','🎀','🌸','✨','🧸','🍓','🦋'];
+    var set=['❤️','❤️','❤️','❤️','❤️','❤️','❤️','❤️','❤️'];
     for(var i=0;i<n;i++){
       (function(i){setTimeout(function(){
         var d=document.createElement('div');

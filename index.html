@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Buat Biel 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#ffe3ef; --bg2:#ffc9e0; --ink:#7a1f4d; --pink:#ff5fa2; --pink2:#ff2e88; --card:#fffafc; --soft:#ffd0e4;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg1:#3a1228;--bg2:#4d1736;--ink:#ffd6e8;--pink:#ff6fb0;--pink2:#ff3d94;--card:#552040;--soft:#6e2a52}
+}
+:root[data-theme="dark"]{--bg1:#3a1228;--bg2:#4d1736;--ink:#ffd6e8;--pink:#ff6fb0;--pink2:#ff3d94;--card:#552040;--soft:#6e2a52}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{height:100%}
+body{
+  font-family:'Fredoka','Baloo 2','Comic Sans MS',system-ui,sans-serif;color:var(--ink);
+  background:radial-gradient(circle at 20% 15%,var(--bg2),transparent 55%),radial-gradient(circle at 85% 85%,var(--bg2),transparent 50%),var(--bg1);
+  overflow:hidden;position:relative;
+}
+.float{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.float span{position:absolute;bottom:-60px;animation:rise linear infinite;opacity:.8}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg)}}
+main{position:relative;z-index:1;min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{
+  width:min(440px,100%);background:var(--card);border-radius:36px;padding:28px 22px 30px;text-align:center;
+  border:4px dashed var(--pink);box-shadow:0 10px 0 var(--soft),0 18px 40px rgba(255,46,136,.25);position:relative;
+}
+.deco{font-size:28px;letter-spacing:6px;animation:wiggle 2.4s ease-in-out infinite}
+.bear{font-size:92px;line-height:1;display:inline-block;animation:bob 1.6s ease-in-out infinite;margin:6px 0 2px}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-4deg)}}
+@keyframes wiggle{50%{transform:rotate(2deg) scale(1.04)}}
+h1{font-size:clamp(26px,8vw,36px);line-height:1.15;font-weight:700;margin:6px 0 6px}
+h1 b{color:var(--pink2)}
+.sub{font-size:16px;opacity:.85;min-height:24px;margin-bottom:18px}
+.btns{display:flex;gap:14px;justify-content:center;align-items:center;min-height:64px}
+button{font-family:inherit;font-weight:700;border:0;border-radius:999px;cursor:pointer;font-size:20px;padding:14px 28px;touch-action:manipulation}
+button:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+#yes{background:linear-gradient(180deg,var(--pink),var(--pink2));color:#fff;box-shadow:0 6px 0 #c41c68;transition:transform .2s;animation:pulse 1.3s ease-in-out infinite}
+#yes:active{transform:translateY(4px);box-shadow:0 2px 0 #c41c68}
+@keyframes pulse{50%{box-shadow:0 6px 0 #c41c68,0 0 0 10px rgba(255,95,162,.25)}}
+#no{background:#e9e4ea;color:#6b5a66;box-shadow:0 6px 0 #c3b8c2;transition:left .25s cubic-bezier(.3,1.6,.5,1),top .25s cubic-bezier(.3,1.6,.5,1)}
+#win{display:none;padding:10px 0}
+#win .bear{font-size:100px;animation:bounce .8s ease-in-out infinite}
+@keyframes bounce{50%{transform:translateY(-18px) scale(1.12)}}
+#msg{font-size:clamp(26px,8.5vw,38px);font-weight:700;line-height:1.2;margin-top:8px}
+#msg .w{display:inline-block;white-space:nowrap}
+#msg .l{display:inline-block;color:var(--pink2);animation:pop .7s cubic-bezier(.3,1.8,.5,1) both,jelly 1.8s ease-in-out infinite;animation-delay:calc(var(--i)*.05s),calc(var(--i)*.05s + .8s)}
+#msg .l:nth-child(3n){color:var(--ink)}
+#msg .l:nth-child(5n){color:#ff8a3d}
+@keyframes pop{from{transform:scale(0) rotate(-40deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+@keyframes jelly{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px) rotate(3deg)}}
+.rain{position:fixed;top:-40px;z-index:5;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(112vh) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){
+  .float,.deco,.bear,#yes,#win .bear,#msg .l{animation:none!important}
+  #msg .l{opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="float" id="float" aria-hidden="true"></div>
+<main>
+  <section class="card" id="ask">
+    <div class="deco" aria-hidden="true">🌸💗🎀💗🌸</div>
+    <div class="bear" aria-hidden="true">🧸</div>
+    <h1>BIEL MAU GA JADI <b>PACARKU?</b> 🥺👉👈</h1>
+    <p class="sub" id="sub">Jawab yang bener yaa, cantik 💕</p>
+    <div class="btns" id="btns">
+      <button id="yes">Mau 💖</button>
+      <button id="no">Gamau 😾</button>
+    </div>
+    <div class="deco" aria-hidden="true" style="margin-top:16px">🍓🦋✨🦋🍓</div>
+  </section>
+
+  <section class="card" id="win" aria-live="polite">
+    <div class="deco" aria-hidden="true">💖🎀💖🎀💖</div>
+    <div class="bear" aria-hidden="true">🥰</div>
+    <div id="msg"></div>
+    <div class="deco" aria-hidden="true" style="margin-top:14px">🌸🧸💞🧸🌸</div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var yes=document.getElementById('yes'), no=document.getElementById('no'), sub=document.getElementById('sub');
+  var ask=document.getElementById('ask'), win=document.getElementById('win'), msgEl=document.getElementById('msg');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // hiasan melayang di latar
+  var fl=document.getElementById('float'), emo=['💖','🌸','🎀','🍓','✨','🦋','💗','🧸'];
+  for(var i=0;i<18;i++){
+    var s=document.createElement('span');
+    s.textContent=emo[i%emo.length];
+    s.style.left=(Math.random()*100)+'%';
+    s.style.fontSize=(18+Math.random()*26)+'px';
+    s.style.animationDuration=(9+Math.random()*10)+'s';
+    s.style.animationDelay=(-Math.random()*14)+'s';
+    fl.appendChild(s);
+  }
+
+  // tombol Gamau kabur
+  var taunts=['Eh kok mau pencet? 😝','Gabisa wleee 🏃‍♂️','Salah tombol, sayang 😜','Udah deh, pencet Mau aja 🥺','Tombolnya malu 🙈','Capek kan ngejar? Pencet Mau 💖','Nyerah aja yaa 😘','Gamau-nya lagi libur 🏖️'];
+  var tries=0, yesScale=1, placed=false;
+  function dodge(e){
+    if(e){e.preventDefault();e.stopPropagation();}
+    tries++;
+    if(!placed){
+      var r=no.getBoundingClientRect();
+      no.style.position='fixed';no.style.left=r.left+'px';no.style.top=r.top+'px';
+      no.style.zIndex=3;placed=true;
+      void no.offsetWidth;
+    }
+    var w=no.offsetWidth,h=no.offsetHeight,pad=12;
+    var maxX=window.innerWidth-w-pad, maxY=window.innerHeight-h-pad;
+    var x,y,t=0,yr=yes.getBoundingClientRect();
+    do{
+      x=pad+Math.random()*Math.max(0,maxX-pad);
+      y=pad+Math.random()*Math.max(0,maxY-pad);
+      t++;
+    }while(t<20 && x<yr.right+10 && x+w>yr.left-10 && y<yr.bottom+10 && y+h>yr.top-10);
+    no.style.left=x+'px';no.style.top=y+'px';
+    sub.textContent=taunts[tries%taunts.length];
+    yesScale=Math.min(1.8,1+tries*.07);
+    yes.style.fontSize=(20*yesScale)+'px';
+    yes.style.padding=(14*yesScale)+'px '+(28*yesScale)+'px';
+  }
+  ['pointerenter','pointerdown','touchstart','click','focus'].forEach(function(ev){no.addEventListener(ev,dodge,{passive:false})});
+
+  // hujan emoji
+  function rain(n){
+    if(reduce)return;
+    var set=['💖','💗','💕','🎀','🌸','✨','🧸','🍓','🦋'];
+    for(var i=0;i<n;i++){
+      (function(i){setTimeout(function(){
+        var d=document.createElement('div');
+        d.className='rain';
+        d.textContent=set[Math.floor(Math.random()*set.length)];
+        d.style.left=(Math.random()*100)+'vw';
+        d.style.fontSize=(20+Math.random()*28)+'px';
+        d.style.animationDuration=(2.8+Math.random()*2.8)+'s';
+        document.body.appendChild(d);
+        setTimeout(function(){d.remove()},6000);
+      },i*70)})(i);
+    }
+  }
+
+  // tombol Mau
+  yes.addEventListener('click',function(){
+    no.style.display='none';
+    ask.style.display='none';
+    win.style.display='block';
+    var text='SEKARANG KAMU PACAR AKU, MAKASIH YAAA BIEL SAYANGG',idx=0;
+    text.split(' ').forEach(function(word,wi,arr){
+      var w=document.createElement('span');w.className='w';
+      word.split('').forEach(function(ch){
+        var l=document.createElement('span');l.className='l';l.textContent=ch;
+        l.style.setProperty('--i',idx++);w.appendChild(l);
+      });
+      msgEl.appendChild(w);
+      if(wi<arr.length-1){msgEl.appendChild(document.createTextNode(' '));idx++;}
+    });
+    rain(60);
+    setTimeout(function(){rain(40)},3500);
+  });
+})();
+</script>
+</body>
+</html>
